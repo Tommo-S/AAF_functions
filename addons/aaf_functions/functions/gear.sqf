@@ -38,8 +38,8 @@ if (_action == "load") then {
 		{
 			private _items = _temploadout select _x;
 			//Selects data held in either uniform, vest or backpack arrays as _items.
-			//Checks to see if the uniform, vest or backpack wasn't present, i.e. and empty string.
-			//Actually if the item is not present the whole thing is an empty array. Hooray.
+			//Checks to see if the uniform, vest or backpack aren't present, i.e. an empty string.
+			//Actually if the item is not present the whole thing is an empty array. Hooray for learning.
 			if (count _items > 0) then {
 				//Goes through all items held in container. Item data at this time would look like ["itemname",count], or possible ["itemname",ammo,count] if magazine.
 				{
