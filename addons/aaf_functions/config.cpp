@@ -195,6 +195,7 @@ class CfgFunctions
 			class vehRespawnCMD {file = "\aaf_functions\functions\vehRespawnCMD.sqf";};
 			class vehRespawnEH {file = "\aaf_functions\functions\vehRespawnEH.sqf";};
 			class vehicleDeath {file = "\aaf_functions\functions\vehicleDeath.sqf";};
+            class zeusCleanOldEHs {file = "\aaf_functions\functions\zeusCleanOldEHs.sqf";};
 			class groupSigDialog {file = "\aaf_functions\dialogs\groupSigDialog.sqf";};
 			class personalSigDialog {file = "\aaf_functions\dialogs\personalSigDialog.sqf";};
 		};
