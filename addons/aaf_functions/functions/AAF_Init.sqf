@@ -28,6 +28,16 @@ if !_value then {
 	
 	player addEventHandler ["respawn",{
 		player setUnitLoadout (player getVariable["Saved_Loadout",[]]);
+		{
+			private _tempValue = player getVariable [_x,nil];
+			if not (isnil "_tempValue") then {
+				switch _foreachIndex do {
+					case 0 : {player setVariable ["ace_medical_medicClass",_tempValue,true];};
+					case 1 : {player setVariable ["ACE_isEngineer",_tempValue,true];};
+					case 2 : {player setVariable ["ACE_isEOD",_tempValue,true];};
+				};
+			};
+		} foreach ["aaf_var_respawn_medicLevel","aaf_var_respawn_engineerLevel","aaf_var_respawn_eodLevel"];
 	}];
 };
 
