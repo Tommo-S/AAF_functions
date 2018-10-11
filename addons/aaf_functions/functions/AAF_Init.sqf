@@ -57,11 +57,12 @@ if not (canTriggerDynamicSimulation player) then {
 
 private _value = missionnamespace getVariable ["aaf_disable_CustomModules",false];
 if !_value then {
-	//Register Ares custom modules for dynamic sim. Note: remove ares dependency from config.cpp.
+	//Register Ares custom modules for dynamic sim/Curator fix.
 	if (not isnil "Ares_fnc_RegisterCustomModule") then {
 		["Dynamic Simulation", "Disable on Unit/Vehicle", { [_this select 1] call aaf_fnc_dynSimSingle; }] call Ares_fnc_RegisterCustomModule;
 		["Dynamic Simulation", "Enable for all objects", { [] call aaf_fnc_dynSimAll; }] call Ares_fnc_RegisterCustomModule;
 		["Dynamic Simulation", "Exclude Unit/Vehicle From Dynamic Sim Enable", { [_this select 1] call aaf_fnc_dynSimExcludeModule; }] call Ares_fnc_RegisterCustomModule;
+        ["AAF", "Fix Promoted Zeus", { [_this select 1] remoteExec ["aaf_fnc_zeusCleanOldEHs",(_this select 1),false]; }] call Ares_fnc_RegisterCustomModule;
 	};
 };
 private _value = missionnamespace getVariable ["aaf_disable_AI_DontShootUnco",false];
