@@ -46,7 +46,7 @@ switch true do {
 
 
 //Update bleeding
-private _openwounds = player getvariable ["ace_medical_openwounds",[]];
+private _openwounds = _target getvariable ["ace_medical_openwounds",[]];
 private _text = markerText _markerName;
 
 	if ((count _openwounds) == 0) then {

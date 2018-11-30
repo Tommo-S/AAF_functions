@@ -124,18 +124,19 @@ call compile format ["
 		
 		
 		private _curatorCam = curatorCamera;
-		if (isnull _curatorCam) then {
-			if ((getPosWorld player) inarea _markerName) then {
+        private _aceSpectate = player getVariable ['ace_spectator_isSet',false];
+		if ((!isnull _curatorCam) || {_aceSpectate}) then {
+            drawIcon3D [_icon, _color, _pos, 1, 1, 0, '', 1, 0.0315, 'EtelkaMonospacePro'];
+		} else {
+            if ((getPosWorld player) inarea _markerName) then {
 				private _targetPos = visiblePositionASL _target;
 				
 				_targetPos set [2,(_targetPos select 2) + 0.5];
 				private _intersects = lineIntersectsSurfaces [_targetPos,eyepos player, vehicle player, vehicle _target, true, 1, 'View', 'fire', true];
 				if ((count _intersects) == 0) then {
-					drawIcon3D [_icon, _color, _pos, 1, 1, 0, _name, 1, 0.0315, 'EtelkaMonospacePro'];
+					drawIcon3D [_icon, _color, _pos, 1, 1, 0, '', 1, 0.0315, 'EtelkaMonospacePro'];
 				};	
 			};
-		} else {
-			drawIcon3D [_icon, _color, _pos, 1, 1, 0, _name, 1, 0.0315, 'EtelkaMonospacePro'];
 		};
 		
 
