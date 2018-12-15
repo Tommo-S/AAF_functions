@@ -23,7 +23,9 @@
 params ["_logic", "_units", "_activated"];
 
 if (_activated) then {
-
+    If (!isServer && !hasInterface) exitWith {
+        [format ["ace_zeus_fnc_bi_moduleCurator Headless Client Exit: Profile %1",profilename],"bis_fnc_error",false] call bis_fnc_mp;
+    };
     //--- Terminate when not created on the server
     if (!isserver && local _logic && isnull (getassignedcuratorunit _logic)) exitwith {
         [format ["%1 is trying to create curator logic ModuleCurator_F",profilename],"bis_fnc_error",false] call bis_fnc_mp;
