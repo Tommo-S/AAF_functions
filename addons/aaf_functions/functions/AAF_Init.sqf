@@ -222,3 +222,19 @@ if !_value then {
 	[] call aaf_fnc_skillNotification;
 };
 
+// Headless Client Loadouts Fix
+// Partial fix for units losing their loadout when being transferred to or from the Headless Client
+// Note that it doesn't consider customized AI loadouts, it will give them default loadout for their class.
+// Fix provided by Schwaggot (Schwaggot#6822) on the Arma 3 discord
+private _value = missionnamespace getVariable ["aaf_disable_HCTransferFix",false];
+if !_value then {
+    ["CAManBase", "Local", {
+        params ["_entity", "_isLocal"];
+
+        if (_isLocal) then {
+            if ((uniform _entity) isEqualTo "") then {
+                _entity setUnitLoadout (getUnitLoadout (typeOf _entity));
+            };
+        };
+    }] call CBA_fnc_addClassEventHandler;
+};

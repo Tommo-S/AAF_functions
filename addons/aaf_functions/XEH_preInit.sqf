@@ -99,6 +99,16 @@
 	{}
 ] call CBA_Settings_fnc_init;
 
+[
+	"aaf_disable_HCTransferFix",
+	"CHECKBOX",
+	"Disable partial fix for naked units due to Headless",
+	["AAF Extras","Post Init Disablers"],
+	false,
+	1,
+	{}
+] call CBA_Settings_fnc_init;
+
 
 //Start Random Death settings
 [
