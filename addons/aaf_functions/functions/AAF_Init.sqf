@@ -9,8 +9,14 @@ if (isserver) then {
 	private _value = missionnamespace getVariable ["aaf_disable_serverAI",false];
 	if !_value then {
 		[] spawn aaf_fnc_aiskill;
-		[] spawn aaf_fnc_grpclean;
+	};
+    private _value = missionnamespace getVariable ["aaf_disable_AI_Resupply",false];
+	if !_value then {
 		[] spawn aaf_fnc_resupply;
+	};
+	private _value = missionnamespace getVariable ["aaf_disable_GroupCleaner",false];
+	if !_value then {
+		[] spawn aaf_fnc_grpclean;
 	};
 };
 

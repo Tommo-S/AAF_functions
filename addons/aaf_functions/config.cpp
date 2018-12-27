@@ -129,25 +129,33 @@ class CfgVehicles {
 			};
 		};
 	};
-	//class Module_F;
-	class ModuleEmpty_F;
+   	class ModuleEmpty_F;
 	class ACE_Module;
-    class Logic;
-    class Module_F: Logic {
+	class Logic;
+	class Module_F: Logic
+	{
 		class EventHandlers;
-    };
-    class ModuleCurator_F: Module_F 
+	};
+	class ModuleCurator_F: Module_F
 	{
 		function="aaf_fnc_ace_zeus_bi_moduleCurator";
-        class EventHandlers: EventHandlers {
-            class aaf_eventhandlers {
-            // init = "[(_this select 0)] spawn aaf_fnc_curatorAddEH";
-			// with below code, the first (_this select 0) is the params passed by CBA_fnc_waitAndExecute, the second is the curator logic as it inits.	   
-			   init = "[{[_this select 0] spawn aaf_fnc_curatorAddEH;}, [(_this select 0)], 15] call CBA_fnc_waitAndExecute";
-            };
-        };
+		class EventHandlers: EventHandlers
+		{
+			class aaf_eventhandlers
+			{
+				init="[{[_this select 0] spawn aaf_fnc_curatorAddEH;}, [(_this select 0)], 15] call CBA_fnc_waitAndExecute";
+			};
+		};
+	};
+    //Making Zeus End Scenario & Countdown modules use edited functions for logging.
+    class ModuleCountdown_F : Module_F
+    {
+        function = "aaf_fnc_modulecountdown";
     };
-
+    class ModuleEndMission_F : Module_F
+    {
+        function = "aaf_fnc_moduleendmission";
+    };    
 };
 
 class CfgFunctions
@@ -166,7 +174,6 @@ class CfgFunctions
 			};
 			class AISkill {
 				file = "\aaf_functions\functions\AISkill.sqf";
-				postInit = 1;
 			};
 			class aiSkillModule {file = "\aaf_functions\functions\aiSkillModule.sqf";};
 			class curatorAddEH {file = "\aaf_functions\functions\curatorAddEH.sqf";};
@@ -177,6 +184,7 @@ class CfgFunctions
 			class dynSimExcludeModule {file = "\aaf_functions\functions\dynSimExcludeModule.sqf";};
 			class dynSimServer {file = "\aaf_functions\functions\dynSimServer.sqf";};
 			class dynSimSingle {file = "\aaf_functions\functions\dynSimSingle.sqf";};
+			class endShootingLogger {file = "\aaf_functions\functions\endShootingLogger.sqf";};
 			class fixVanillaDamage {file = "\aaf_functions\functions\fixVanillaDamage.sqf";};
 			class gear {file = "\aaf_functions\functions\gear.sqf";};
 			class grpclean {file = "\aaf_functions\functions\grpclean.sqf";};
@@ -184,6 +192,8 @@ class CfgFunctions
 			class hideHUDkeybind {file = "\aaf_functions\functions\hideHUDkeybind.sqf";};			
 			class JIPZeusAssign {file = "\aaf_functions\functions\JIPZeusAssign.sqf";};
 			class medicalDebug {file = "\aaf_functions\functions\medicalDebug.sqf";};
+            class moduleCountdown {file = "\aaf_functions\functions\bi_modulecountdown.sqf";};
+            class moduleEndMission {file = "\aaf_functions\functions\bi_moduleEndMission.sqf";};
 			class randomDeath {file = "\aaf_functions\functions\randomDeath.sqf";};
 			class reviveMarkers {file = "\aaf_functions\functions\reviveMarkers.sqf";};
 			class reviveMarkerUpdater {file = "\aaf_functions\functions\reviveMarkerUpdater.sqf";};

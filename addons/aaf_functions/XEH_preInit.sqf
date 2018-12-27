@@ -12,7 +12,27 @@
 [
 	"aaf_disable_serverAI",
 	"CHECKBOX",
-	"Disable AI skill setter, group cleaner, resupplier",
+	"Disable AAF AI skill setter system + Modules",
+	["AAF Extras","Post Init Disablers"],
+	false,
+	1,
+	{}
+] call CBA_Settings_fnc_init;
+
+[
+	"aaf_disable_AI_Resupply",
+	"CHECKBOX",
+	"Disable periodic resupply of AI vehicles",
+	["AAF Extras","Post Init Disablers"],
+	false,
+	1,
+	{}
+] call CBA_Settings_fnc_init;
+
+[
+	"aaf_disable_GroupCleaner",
+	"CHECKBOX",
+	"Disable empty groups deleter (game does this anyway)",
 	["AAF Extras","Post Init Disablers"],
 	false,
 	1,
