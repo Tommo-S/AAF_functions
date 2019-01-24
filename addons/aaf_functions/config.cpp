@@ -172,9 +172,7 @@ class CfgFunctions
 				file = "\aaf_functions\functions\AAF_Init.sqf";
 				postInit = 1;
 			};
-			class AISkill {
-				file = "\aaf_functions\functions\AISkill.sqf";
-			};
+			class AISkill {file = "\aaf_functions\functions\AISkill.sqf";};
 			class aiSkillModule {file = "\aaf_functions\functions\aiSkillModule.sqf";};
 			class curatorAddEH {file = "\aaf_functions\functions\curatorAddEH.sqf";};
 			class curatorObjectEH {file = "\aaf_functions\functions\curatorObjectEH.sqf";};

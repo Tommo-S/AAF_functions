@@ -3,6 +3,13 @@
 
 if (!isserver) exitWith {};
 
+//Mid-mission exit
+//Note that this is reversed from AAF_init.sqf, as this is looking for when the disable variable is true.
+private _value = missionnamespace getVariable ["aaf_disable_serverAI",false];
+if _value exitWith {
+    ["AAF Skill Setter exiting. Enable setting, restart mission to reenable."] remoteExec ["systemChat",0,false];
+};
+
 //Build the skill arrays. When they're built, they'll look like aaf_ai_rank_1 = [aaf_ai_aimingshake1,aaf_ai_aimingspeed1...] etc, with the values from CBA options subbing in for the variable names.
 
 //Rank 1 is conscript level, rank 2 is regular, rank 3 is SF.
